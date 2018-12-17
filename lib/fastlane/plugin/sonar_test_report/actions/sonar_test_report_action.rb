@@ -33,18 +33,19 @@ module Fastlane
           FastlaneCore::ConfigItem.new(
             key: :junit_report,
             env_name: "SONAR_TEST_REPORT_JUNIT_REPORT",
-            description: "The path of the junit test report file that is used to generate the generic test execution file for sonarqube. ",
+            description: "The path of the junit test report file that is used to generate the generic test execution file for sonarqube ",
             optional: false,
             type: String,
-            varify_block: proc do 
+            verify_block: proc do 
               UI.user_error!("ERROR: junit report not found at path: #{junit_report}") unless File.exist?(junit_report)
-            end ),
+            end 
+            ),
             FastlaneCore::ConfigItem.new(
               key: :sonar_generated_report,
               env_name: "SONAR_TEST_REPORT_SONAR_GENERATED_REPORT",
-              description: "The path of the sonarqube test execution report generated from the junit test report.",
+              description: "The path of the sonarqube test execution report generated from the junit test report",
               optional: true,
-              default_value: 'Test_sonarqube_report.xml'
+              default_value: 'Test_sonarqube_report.xml',
               type: String
             )
         ]
@@ -54,7 +55,7 @@ module Fastlane
         # Adjust this if your plugin only works for a particular platform (iOS vs. Android, for example)
         # See: https://docs.fastlane.tools/advanced/#control-configuration-by-lane-and-by-platform
         #
-        # [:ios, :mac, :android].include?(platform)
+         [:ios, :mac].include?(platform)
         true
       end
     end

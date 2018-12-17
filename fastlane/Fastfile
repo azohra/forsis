@@ -1,6 +1,6 @@
 lane :test do
   sonar_test_report(
-    junit_report: "report.junit",
-    sonar_generated_report: "test_output/Test-report.xml"
+    junit_report: './fastlane/report.junit',
+    sonar_generated_report: 'test_output/Test-report.xml'
   )
 end
