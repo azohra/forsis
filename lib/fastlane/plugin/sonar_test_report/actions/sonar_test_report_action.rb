@@ -7,7 +7,7 @@ module Fastlane
       def self.run(params)
         junit_report = params[:junit_report]
         sonarqube_report = params[:sonar_generated_report]
-        report = Fastlane::Helper::SonarTestReport.generate(junit_report,sonarqube_report)
+        Fastlane::Helper::SonarTestReport.generate(junit_report,sonarqube_report)
         UI.message("The sonar_test_report plugin is working!")
       end
 
@@ -36,8 +36,8 @@ module Fastlane
             description: "The path of the junit test report file that is used to generate the generic test execution file for sonarqube ",
             optional: false,
             type: String,
-            verify_block: proc do 
-              UI.user_error!("ERROR: junit report not found at path: #{junit_report}") unless File.exist?(junit_report)
+            verify_block: proc do |path|
+              UI.user_error!("ERROR: junit report not found at path: #{path}") unless File.exist?(path)
             end 
             ),
             FastlaneCore::ConfigItem.new(
