@@ -5,6 +5,9 @@ module Fastlane
   module Actions
     class SonarTestReportAction < Action
       def self.run(params)
+        junit_report = params[:junit
+        sonarqube_report = params[:sonar]
+        report = 
         UI.message("The sonar_test_report plugin is working!")
       end
 
