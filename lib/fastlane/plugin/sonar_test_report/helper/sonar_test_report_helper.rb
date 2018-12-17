@@ -5,11 +5,11 @@ module Fastlane
   UI = FastlaneCore::UI unless Fastlane.const_defined?("UI")
 
   module Helper
-    module SonarTestReport
-      
-      def generate(junit_report, sonarqube_report)
-        f = File.open(sonarqube_report, 'a')
-        test_suites = junit_report.xpath("//testsuite")
+    module SonarTestReport   
+      def self.generate(junit_report_path, sonarqube_report_path)
+        junit_file = Nokogiri::XML(open(junit_report_path))
+        sonarqube_file = File.open(sonarqube_report_path, 'a')
+        test_suites = junit_file.xpath("//testsuite")
         builder = Nokogiri::XML::Builder.new do |xml|
             xml.testExecutions({version: :"1"}) {
                 test_suites.each do |test_file|
@@ -43,7 +43,7 @@ module Fastlane
                 #    
         end
             
-        f.puts builder.to_xml
+        sonarqube_file.puts builder.to_xml
       end
 
       def self.show_message

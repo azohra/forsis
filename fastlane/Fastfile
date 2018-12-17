@@ -1,3 +1,6 @@
 lane :test do
-  sonar_test_report
+  sonar_test_report(
+    junit: "report.junit",
+    sonar: "test_output/Test-report.xml"
+  )
 end

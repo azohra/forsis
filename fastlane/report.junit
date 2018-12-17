@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='MobilePickerTests.xctest' tests='23' failures='1'>
+  <testsuite name='MobilePickerTests.BarcodeKitTests' tests='11' failures='0'>
+    <testcase classname='MobilePickerTests.BarcodeKitTests' name='test_barcodeType' time='0.003'/>
+    <testcase classname='MobilePickerTests.BarcodeKitTests' name='test_convert' time='0.003'/>
+    <testcase classname='MobilePickerTests.BarcodeKitTests' name='test_embeddedType' time='0.001'/>
+    <testcase classname='MobilePickerTests.BarcodeKitTests' name='test_embeddedValue' time='0.001'/>
+    <testcase classname='MobilePickerTests.BarcodeKitTests' name='test_toDigits' time='0.001'/>
+    <testcase classname='MobilePickerTests.BarcodeKitTests' name='test_validate' time='0.001'/>
+    <testcase classname='MobilePickerTests.BarcodeKitTests' name='testIsGS1Fails' time='0.001'/>
+    <testcase classname='MobilePickerTests.BarcodeKitTests' name='testIsPriceEmbeddedFails' time='0.000'/>
+    <testcase classname='MobilePickerTests.BarcodeKitTests' name='testIsValidUPCAFails' time='0.000'/>
+    <testcase classname='MobilePickerTests.BarcodeKitTests' name='testIsValidUPCEFails' time='0.000'/>
+    <testcase classname='MobilePickerTests.BarcodeKitTests' name='testIsWeightEmbeddedFails' time='0.001'/>
+  </testsuite>
+  <testsuite name='MobilePickerTests.DateFunctionTests' tests='9' failures='1'>
+    <testcase classname='MobilePickerTests.DateFunctionTests' name='test_beginningOfDay' time='0.003'/>
+    <testcase classname='MobilePickerTests.DateFunctionTests' name='test_by' time='0.001'/>
+    <testcase classname='MobilePickerTests.DateFunctionTests' name='test_endOfDay' time='0.001'/>
+    <testcase classname='MobilePickerTests.DateFunctionTests' name='test_isBetween' time='0.001'/>
+    <testcase classname='MobilePickerTests.DateFunctionTests' name='test_isDays' time='0.001'/>
+    <testcase classname='MobilePickerTests.DateFunctionTests' name='test_isIn' time='0.001'/>
+    <testcase classname='MobilePickerTests.DateFunctionTests' name='testHourString'>
+      <failure message='XCTAssertTrue failed - '>MobilePickerTests/Managers/DateFunctionTests.swift:96</failure>
+    </testcase>
+    <testcase classname='MobilePickerTests.DateFunctionTests' name='testNavigationBarTitle' time='0.001'/>
+    <testcase classname='MobilePickerTests.DateFunctionTests' name='testOrdersPageString' time='0.001'/>
+  </testsuite>
+  <testsuite name='MobilePickerTests.LocalizationTests' tests='2' failures='0'>
+    <testcase classname='MobilePickerTests.LocalizationTests' name='test_IfFrenchIsTheSameAsEnglish' time='0.018'/>
+    <testcase classname='MobilePickerTests.LocalizationTests' name='test_missingAssets' time='0.004'/>
+  </testsuite>
+  <testsuite name='MobilePickerTests.UserDefaultsUserIds' tests='1' failures='0'>
+    <testcase classname='MobilePickerTests.UserDefaultsUserIds' name='test_getUserNames' time='0.003'/>
+  </testsuite>
+</testsuites>
