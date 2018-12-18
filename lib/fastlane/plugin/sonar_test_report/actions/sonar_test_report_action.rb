@@ -10,8 +10,8 @@ module Fastlane
         
         if !params || params.size() < 1  
           UI.user_error!("sonar_test_report action missing these keys: #{mandatory_options().join(', ')}")
-          require 'pry'
-          binding.pry
+          # require 'pry'
+          # binding.pry
         else
           junit_report = params[:junit_report]
           sonarqube_report = params[:sonar_generated_report]

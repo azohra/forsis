@@ -24,5 +24,17 @@ describe Fastlane::Actions::SonarTestReportAction do
       end
    end
 
+   it 'raises an error if there is no junit file in the given path' do
+    lane = "lane :test do
+      sonar_test_report(
+        junit_report: 'wrong_path',
+        sonar_generated_report: 'fastlane/Test-report.xml'
+      )
+      end"
+      expect do
+        Fastlane::FastFile.new.parse(lane).runner.execute(:test).to raise_error("ERROR: junit report not found at path: #{path}")
+      end
+   end
+
   end
 end
