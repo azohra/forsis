@@ -1,8 +1,17 @@
 describe Fastlane::Actions::SonarTestReportAction do
   describe 'handles invalid data' do
-    
-    it 'raises an error if mandatory options are not provided in the action' do
 
+    it 'raises an error if no options are provided in the action' do
+      lane = "lane :test do
+      sonar_test_report(
+      )
+      end"
+      expect do
+        Fastlane::FastFile.new.parse(lane).runner.execute(:test).to raise_error("sonar_test_report action missing these keys: junit_report")
+      end
+    end
+
+    it 'raises an error if mandatory options are not provided in the action' do
       # Fastlane::Actions::SonarTestReportAction.run(nil)
       # expect(Fastlane::UI).to receive(:message).with("sonar_test_report action missing these keys:junit_report")
       lane = "lane :test do
