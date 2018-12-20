@@ -6,18 +6,12 @@ module Fastlane
     class SonarTestReportAction < Action
 
       
-      def self.run(params)
-        
-        if !params || params.size() < 1  
-          UI.user_error!("sonar_test_report action missing these keys: #{mandatory_options().join(', ')}")
-          # require 'pry'
-          # binding.pry
-        else
-          junit_report = params[:junit_report]
-          sonarqube_report = params[:sonar_generated_report]
-          Fastlane::Helper::SonarTestReport.generate(junit_report,sonarqube_report)
+      def self.run(params) 
+          junit_report_path = params[:junit_report_path]
+          sonarqube_report_path = params[:sonar_report_path]
+          Fastlane::Helper::SonarTestReport.generate(junit_report_path,sonar_report_path)
           UI.message("Generating the Sonarqube generic test execution report!")
-        end
+        # end
       end
 
       def self.description
@@ -40,22 +34,32 @@ module Fastlane
       def self.available_options
         [
           FastlaneCore::ConfigItem.new(
-            key: :junit_report,
+            key: :junit_report_path,
             env_name: "SONAR_TEST_REPORT_JUNIT_REPORT",
-            description: "The path of the junit test report file that is used to generate the generic test execution file for sonarqube ",
+            description: "The path of the junit test report file used to generate the generic test execution file for sonarqube ",
             optional: false,
             type: String,
+            display_in_shell: false,
             verify_block: proc do |path|
-              UI.user_error!("ERROR: junit report not found at path: #{path}") unless File.exist?(path)
-            end 
+              # require 'pry'
+              # binding.pry
+               if path == ""
+                UI.user_error!("'sonar_test_report' action missing the key 'junit_report_path' or its value.")
+               else
+                 UI.user_error!("ERROR: junit report not found at path: #{path}") unless File.exist?(path)
+               end 
+            end
             ),
             FastlaneCore::ConfigItem.new(
-              key: :sonar_generated_report,
+              key: :sonar_report_path,
               env_name: "SONAR_TEST_REPORT_SONAR_GENERATED_REPORT",
               description: "The path of the sonarqube test execution report generated from the junit test report",
               optional: true,
               default_value: 'Test_sonarqube_report.xml',
-              type: String
+              type: String,
+              verify_block: proc do |path|
+                # return_directory(path) unless File.exist?(path)
+              end
             )
         ]
       end
@@ -69,6 +73,9 @@ module Fastlane
          compulsary_options
       end
 
+      # def self.return_directory(path)
+
+      # end
       def self.is_supported?(platform)
         # Adjust this if your plugin only works for a particular platform (iOS vs. Android, for example)
         # See: https://docs.fastlane.tools/advanced/#control-configuration-by-lane-and-by-platform
