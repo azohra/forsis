@@ -14,10 +14,9 @@ describe Fastlane::Actions::SonarTestReportAction do
     end
 
     it 'raises an error if mandatory options are not provided in the action' do
-      # expect(Fastlane::UI).to receive(:message).with("sonar_test_report action missing these keys:junit_report")
       lane = "lane :test do
         sonar_test_report(
-        sonar_report_path: 'fastlane/Test-report.xml'
+          sonar_report_path: 'fastlane/Test-report.xml'
       )
       end"
       expect { Fastlane::FastFile.new.parse(lane).runner.execute(:test) }.to(
@@ -30,14 +29,15 @@ describe Fastlane::Actions::SonarTestReportAction do
    it 'raises an error if there is no junit file in the given path' do
     lane = "lane :test do
       sonar_test_report(
-        junit_report: 'wrong_path',
-        sonar_generated_report: 'fastlane/Test-report.xml'
+        junit_report_path: './wrong/path/to_junit_file',
+        sonar_report_path: './fastlane'
       )
       end"
-      # expect do
-      #   Fastlane::FastFile.new.parse(lane).runner.execute(:test).to raise_error("ERROR: junit report not found at path: #{path}")
-      # end
-             expect(Fastlane::UI).to receive(:message).with("sonar_test_report action missing these keys:junit_report")
+      expect { Fastlane::FastFile.new.parse(lane).runner.execute(:test) }.to(
+        raise_error(FastlaneCore::Interface::FastlaneError) do |error|
+           expect(error.message).to match("ERROR: junit report not found at path: ./wrong/path/to_junit_file")
+        end
+      )
 
    end
 
