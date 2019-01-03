@@ -7,8 +7,8 @@ module Fastlane
   module Helper
     module SonarTestReport   
       def self.generate(junit_report_path, sonarqube_report_path)
-        junit_file = Nokogiri::XML(open(junit_report_path))
-        sonarqube_file = File.open(sonarqube_report_path, 'a')
+        junit_file = Nokogiri::XML(open(junit_report_path + "/report.junit"))
+        sonarqube_file = File.open(sonarqube_report_path + "/Test-report.xml", 'a')
         test_suites = junit_file.xpath("//testsuite")
         builder = Nokogiri::XML::Builder.new do |xml|
             xml.testExecutions({version: :"1"}) {
@@ -16,7 +16,6 @@ module Fastlane
                     file_name = `echo #{test_file["name"]}| cut -d'.' -f 2`.gsub(/\n/, '')
                     file_path = `cd .. && find . -iname "#{file_name}.swift"`.gsub(/\n/, '')
                     test_cases = []
-                    # binding.pry
                     test_file.children.each do |child|
                         test_cases << child if child.class ==  Nokogiri::XML::Element 
                     end
@@ -27,7 +26,6 @@ module Fastlane
                             test.children.each do |test_child|
                                 test_failures << test_child if test_child.class ==  Nokogiri::XML::Element 
                             end
-                            #  binding.pry
                             xml.testCase({name: :"#{test["name"]}", duration: :"#{test_duration}"}) {
                                 test_failures.each do |failure|
                                     failure_type = failure.name
