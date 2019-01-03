@@ -9,9 +9,8 @@ module Fastlane
       def self.run(params) 
           junit_report_path = params[:junit_report_path]
           sonarqube_report_path = params[:sonar_report_path]
-          Fastlane::Helper::SonarTestReport.generate(junit_report_path,sonar_report_path)
+          Fastlane::Helper::SonarTestReport.generate(junit_report_path,sonarqube_report_path)
           UI.message("Generating the Sonarqube generic test execution report!")
-        # end
       end
 
       def self.description
@@ -58,10 +57,10 @@ module Fastlane
               default_value: 'Test_sonarqube_report.xml',
               type: String,
               verify_block: proc do |path|
-                # return_directory(path) unless File.exist?(path)
-              end
+                FileUtils.mkdir_p(path) unless File.directory?(path)  
+              end              
             )
-        ]
+          ]
       end
 
       def self.mandatory_options()
