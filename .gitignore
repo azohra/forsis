@@ -11,3 +11,4 @@ fastlane/report.xml
 coverage
 test-results
 test_output
+fastlane/Test-report.xml
