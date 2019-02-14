@@ -38,8 +38,18 @@ describe Fastlane::Actions::SonarTestReportAction do
            expect(error.message).to match("ERROR: junit report not found at path: ./wrong/path/to_junit_file")
         end
       )
-
    end
 
+   it 'creates the folder if it does not exist in the given path' do
+    lane = "lane :test do
+      sonar_test_report(
+        junit_report_path: './fastlane',
+        sonar_report_path: './test_directory'
+      )
+      end"
+    Fastlane::FastFile.new.parse(lane).runner.execute(:test) 
+    expect(test_directory).to exist
+   end
+     
   end
 end

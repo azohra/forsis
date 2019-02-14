@@ -45,6 +45,8 @@ module Fastlane
                if path == ""
                 UI.user_error!("'sonar_test_report' action missing the key 'junit_report_path' or its value.")
                else
+                require 'pry'
+                binding.pry
                  UI.user_error!("ERROR: junit report not found at path: #{path}") unless File.exist?(path)
                end 
             end
