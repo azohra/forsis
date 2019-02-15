@@ -66,15 +66,6 @@ module Fastlane
           ]
       end
 
-      def self.mandatory_options()
-        compulsary_options = []
-        available_options = available_options()
-        available_options.each do |option|
-          compulsary_options << option.key if option.optional == false
-         end
-         compulsary_options
-      end
-
       # def self.return_directory(path)
 
       # end
