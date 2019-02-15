@@ -14,7 +14,7 @@ module Fastlane
       end
 
       def self.description
-        "This plugin converts a junit test report to a sonarqube generic test execution report"
+        "This plugin converts the fastlane-generated junit test report to a sonarqube generic test execution report"
       end
 
       def self.authors
@@ -40,14 +40,10 @@ module Fastlane
             type: String,
             display_in_shell: false,
             verify_block: proc do |path|
-              # require 'pry'
-              # binding.pry
               puts("junit path is #{path}")
                if path == ""
                 UI.user_error!("'sonar_test_report' action missing the key 'junit_report_path' or its value.")
                else
-                  # require 'pry'
-                  # binding.pry
                  UI.user_error!("ERROR: junit report not found at path: #{path}") unless File.exist?(path)
                end 
             end
