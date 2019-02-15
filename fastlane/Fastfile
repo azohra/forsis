@@ -1,6 +1,6 @@
 lane :test do
   sonar_test_report(
-     junit_report_path: './fastlane',
-     sonar_report_path: './test_output'
+     junit_report_file: './spec/fixtures/valid_report.junit',
+     sonar_report_directory: './test_output'
   )
 end
