@@ -7,8 +7,8 @@ module Fastlane
 
       
       def self.run(params) 
-          junit_report_path = params[:junit_report_path]
-          sonarqube_report_path = params[:sonar_report_path]
+          junit_report_path = params[:junit_report_file]
+          sonarqube_report_path = params[:sonar_report_directory]
           Fastlane::Helper::SonarTestReport.generate(junit_report_path,sonarqube_report_path)
           UI.message("Generating the Sonarqube generic test execution report!")
       end
@@ -33,7 +33,7 @@ module Fastlane
       def self.available_options
         [
           FastlaneCore::ConfigItem.new(
-            key: :junit_report_path,
+            key: :junit_report_file,
             env_name: "SONAR_TEST_REPORT_JUNIT_REPORT",
             description: "The path of the junit test report file used to generate the generic test execution file for sonarqube ",
             optional: false,
@@ -42,17 +42,18 @@ module Fastlane
             verify_block: proc do |path|
               # require 'pry'
               # binding.pry
+              puts("junit path is #{path}")
                if path == ""
                 UI.user_error!("'sonar_test_report' action missing the key 'junit_report_path' or its value.")
                else
-                require 'pry'
-                binding.pry
+                  # require 'pry'
+                  # binding.pry
                  UI.user_error!("ERROR: junit report not found at path: #{path}") unless File.exist?(path)
                end 
             end
             ),
             FastlaneCore::ConfigItem.new(
-              key: :sonar_report_path,
+              key: :sonar_report_directory,
               env_name: "SONAR_TEST_REPORT_SONAR_GENERATED_REPORT",
               description: "The path of the sonarqube test execution report generated from the junit test report",
               optional: true,
