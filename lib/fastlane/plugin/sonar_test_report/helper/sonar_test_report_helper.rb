@@ -31,7 +31,7 @@ module Fastlane
                                     failure_type = failure.name
                                     failure_message = failure["message"]
                                     failure_description = failure.text
-                                    xml.send("failure", failure_description, :message => failure_message)                            
+                                    xml.send(failure_type, failure_description, :message => failure_message)                            
                                 end
                             }
                         end

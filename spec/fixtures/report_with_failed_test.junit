@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='ExampleTests.xctest' tests='11' failures='1'>
+  <testsuite name='ExampleTests.ClassOneTests' tests='11' failures='1'>
+    <testcase classname='ExampleTests.ClassOneTests' name='test1' time='0.003'/>
+    <testcase classname='ExampleTests.ClassOneTests' name='test2' time='0.003'/>
+    <testcase classname='ExampleTests.ClassOneTests' name='test3' time='0.001'/>
+    <testcase classname='ExampleTests.ClassOneTests' name='test4' time='0.001'/>
+    <testcase classname='ExampleTests.ClassOneTests' name='test5' time='0.001'/>
+    <testcase classname='ExampleTests.ClassOneTests' name='test6' time='0.001'/>
+    <testcase classname='ExampleTests.ClassOneTests' name='test7' time='0.001'/>
+    <testcase classname='ExampleTests.ClassOneTests' name='test8' time='0.000'/>
+    <testcase classname='ExampleTests.ClassOneTests' name='test9' time='0.000'/>
+    <testcase classname='ExampleTests.ClassOneTests' name='test10'>
+      <failure message='XCTAssertTrue failed - '>ExampleTests/ClassOneTests.swift:96</failure>
+    </testcase>
+    <testcase classname='ExampleTests.ClassOneTests' name='test11' time='0.001'/>
+  </testsuite>
+    <testsuite name='ExampleTests.ClassTwoTests' tests='3' skipped='1'>
+    <testcase classname='ExampleTests.ClassTwoTests' name='test1' time='0.001'/>
+    <testcase classname='ExampleTests.ClassTwoTests' name='test2' time='0.001'/>
+    <testcase classname='ExampleTests.ClassOneTests' name='10'>
+      <skipped message='short message'>ExampleTests/ClassTwoTests.swift:17</skipped>
+    </testcase>
+  </testsuite>
+</testsuites>

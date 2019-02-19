@@ -48,7 +48,7 @@ describe Fastlane::Actions::SonarTestReportAction do
     context 'when running the lane' do
 
       after(:each) do
-        FileUtils.rm_rf(File.absolute_path('spec/test_output'))
+        # FileUtils.rm_rf(File.absolute_path('spec/test_output'))
       end
 
       it 'creates the folder if it does not exist in the given path' do
@@ -62,6 +62,21 @@ describe Fastlane::Actions::SonarTestReportAction do
         
           Fastlane::FastFile.new.parse(lane).runner.execute(:test) 
           expect(Dir.exist?(output_directory)).to be true
+      end
+      # test if the optional field is not given, it uses the default
+
+      it 'generates the correct format of SonarQube generic execution' do
+        output_directory = File.absolute_path('spec/test_output')
+        lane = "lane :test do
+        sonar_test_report(
+          junit_report_file: '../spec/fixtures/report_with_failed_test.junit',
+          sonar_report_directory: '#{output_directory}'
+        )
+        end"
+
+        Fastlane::FastFile.new.parse(lane).runner.execute(:test) 
+        generated_sonarqube_report = File.absolute_path("spec/fixtures/Test_sonarqube_report2.xml")
+        expect(FileUtils.compare_file("#{output_directory}/Test_sonarqube_report.xml", "#{generated_sonarqube_report}")).to be true
       end
     end
   end
