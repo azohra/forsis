@@ -12,3 +12,4 @@ coverage
 test-results
 test_output
 fastlane/Test-report.xml
+spec/.DS_Store

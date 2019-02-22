@@ -18,7 +18,7 @@
     <testsuite name='ExampleTests.ClassTwoTests' tests='3' skipped='1'>
     <testcase classname='ExampleTests.ClassTwoTests' name='test1' time='0.001'/>
     <testcase classname='ExampleTests.ClassTwoTests' name='test2' time='0.001'/>
-    <testcase classname='ExampleTests.ClassOneTests' name='10'>
+    <testcase classname='ExampleTests.ClassOneTests' name='test3'>
       <skipped message='short message'>ExampleTests/ClassTwoTests.swift:17</skipped>
     </testcase>
   </testsuite>
