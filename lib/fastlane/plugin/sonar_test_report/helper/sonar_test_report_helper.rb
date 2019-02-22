@@ -6,7 +6,7 @@ module Fastlane
       class Generator
         def self.generate(junit_report_path, sonarqube_report_path)
           junit_file = Nokogiri::XML(open(junit_report_path))
-          sonarqube_file = File.open(sonarqube_report_path + "/Test_sonarqube_report.xml", 'a')
+          sonarqube_file = File.open(sonarqube_report_path + "/Test_sonarqube_report.xml", 'w')
           test_suites = junit_file.xpath("//testsuite")
           builder = Nokogiri::XML::Builder.new do |xml|
               xml.testExecutions({version: :"1"}) {

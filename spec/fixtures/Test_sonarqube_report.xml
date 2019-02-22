@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<testExecutions version="1">
+  <file path="./ExampleTests/ClassOneTests.swift">
+    <testCase name="test1" duration="3"/>
+    <testCase name="test2" duration="3"/>
+    <testCase name="test3" duration="1"/>
+    <testCase name="test4" duration="1"/>
+    <testCase name="test5" duration="1"/>
+    <testCase name="test6" duration="1"/>
+    <testCase name="test7" duration="1"/>
+    <testCase name="test8" duration="0"/>
+    <testCase name="test9" duration="0"/>
+    <testCase name="test10" duration="0">
+      <failure message="XCTAssertTrue failed - ">ExampleTests/ClassOneTests.swift:96</failure>
+    </testCase>
+    <testCase name="test11" duration="1"/>
+  </file>
+  <file path="./ExampleTests/ClassTwoTests.swift">
+    <testCase name="test1" duration="1"/>
+    <testCase name="test2" duration="1"/>
+    <testCase name="test3" duration="0">
+      <skipped message="short message">ExampleTests/ClassTwoTests.swift:17</skipped>
+    </testCase>
+  </file>
+</testExecutions>

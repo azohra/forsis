@@ -48,7 +48,7 @@ describe Fastlane::Actions::SonarTestReportAction do
     context 'when running the lane' do
 
       after(:each) do
-        FileUtils.rm_rf(File.absolute_path('spec/test_output'))
+        # FileUtils.rm_rf(File.absolute_path('spec/test_output'))
       end
 
       it 'creates folders if they do not exist in a given path' do
