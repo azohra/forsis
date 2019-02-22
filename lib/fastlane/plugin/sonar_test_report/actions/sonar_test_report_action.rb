@@ -9,7 +9,7 @@ module Fastlane
       def self.run(params) 
           junit_report_path = params[:junit_report_file]
           sonarqube_report_path = params[:sonar_report_directory]
-          Fastlane::Helper::SonarTestReport.generate(junit_report_path,sonarqube_report_path)
+          Fastlane::Helper::SonarTestReportHelper::Generator.generate(junit_report_path,sonarqube_report_path)
           UI.message("Generating the Sonarqube generic test execution report!")
       end
 
