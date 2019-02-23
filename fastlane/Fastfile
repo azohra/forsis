@@ -1,5 +1,4 @@
 lane :test do
-  # the paths are relative to the main repo
   sonar_test_report(
      junit_report_file: './spec/fixtures/original_test_report.junit',
      sonar_report_directory: './spec/test_output'
