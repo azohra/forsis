@@ -44,7 +44,7 @@ module Fastlane
         end
 
         def self.get_test_file_path(file_name)
-          `cd .. && find . -iname "#{file_name}.swift"`.gsub(/\n/, '')
+          `find . -iname "#{file_name}.swift"`.gsub(/\n/, '')
         end
       end
 
