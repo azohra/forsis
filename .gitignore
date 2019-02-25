@@ -10,3 +10,9 @@ fastlane/README.md
 fastlane/report.xml
 coverage
 test-results
+fastlane/Test-report.xml
+fastlane/test_output
+
+## Generated files when running tests
+spec/.DS_Store
+spec/test_output
