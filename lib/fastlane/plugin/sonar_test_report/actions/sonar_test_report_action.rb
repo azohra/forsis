@@ -5,11 +5,11 @@ module Fastlane
   module Actions
     class SonarTestReportAction < Action
 
-      def self.run(params) 
-          junit_report_path = params[:junit_report_file]
-          sonarqube_report_path = params[:sonar_report_directory]
-          Fastlane::Helper::SonarTestReportHelper::Generator.generate(junit_report_path,sonarqube_report_path)
-          UI.message("Generating the Sonarqube generic test execution report!")
+      def self.run(params)
+        junit_report_path = params[:junit_report_file]
+        sonarqube_report_path = params[:sonar_report_directory]
+        UI.message("Generating the Sonarqube generic test execution report!")
+        Fastlane::Helper::SonarTestReportHelper::Generator.generate(junit_report_path, sonarqube_report_path)
       end
 
       def self.description
@@ -38,25 +38,25 @@ module Fastlane
                 UI.user_error!("'sonar_test_report' action missing the key 'junit_report_path' or its value.")
               else
                 UI.user_error!("ERROR: junit report not found at path: #{path}") unless File.exist?(path)
-              end 
+              end
             end
-            ),
-            FastlaneCore::ConfigItem.new(
-              key: :sonar_report_directory,
-              env_name: "SONAR_TEST_REPORT_SONAR_GENERATED_REPORT",
-              description: "The path of the sonarqube test execution report generated from the junit test report",
-              optional: true,
-              default_value: './fastlane',
-              type: String,
-              verify_block: proc do |path|
-                FileUtils.mkdir_p(path) unless File.directory?(path)  
-              end              
-            )
-          ]
+          ),
+          FastlaneCore::ConfigItem.new(
+            key: :sonar_report_directory,
+            env_name: "SONAR_TEST_REPORT_SONAR_GENERATED_REPORT",
+            description: "The path of the sonarqube test execution report generated from the junit test report",
+            optional: true,
+            default_value: './fastlane',
+            type: String,
+            verify_block: proc do |path|
+              FileUtils.mkdir_p(path) unless File.directory?(path)
+            end
+          )
+        ]
       end
 
       def self.is_supported?(platform)
-         [:ios, :mac].include?(platform)
+        [:ios, :mac].include?(platform)
         true
       end
 
