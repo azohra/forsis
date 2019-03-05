@@ -3,13 +3,13 @@ require_relative '../helper/forsis_helper'
 
 module Fastlane
   module Actions
-    class SonarTestReportAction < Action
+    class ForsisAction < Action
 
       def self.run(params)
         junit_report_path = params[:junit_report_file]
         sonarqube_report_path = params[:sonar_report_directory]
         UI.message("Generating the Sonarqube generic test execution report!")
-        Fastlane::Helper::SonarTestReportHelper::Generator.generate(junit_report_path, sonarqube_report_path)
+        Fastlane::Helper::ForsisHelper::Generator.generate(junit_report_path, sonarqube_report_path)
       end
 
       def self.description

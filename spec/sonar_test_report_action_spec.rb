@@ -1,4 +1,4 @@
-describe Fastlane::Actions::SonarTestReportAction do
+describe Fastlane::Actions::ForsisAction do
   after(:all) do
     FileUtils.rm_rf(File.absolute_path('spec/test_output'))
   end
@@ -51,7 +51,7 @@ describe Fastlane::Actions::SonarTestReportAction do
           sonar_report_directory: '#{output_directory}'
         )
         end"
-      allow(Fastlane::Helper::SonarTestReportHelper::Generator).to receive(:generate)
+      allow(Fastlane::Helper::ForsisHelper::Generator).to receive(:generate)
         .with("../spec/fixtures/original_test_report.junit", output_directory.to_s)
         .and_return("#{output_directory}/Test_sonarqube_report.xml")
       Fastlane::FastFile.new.parse(lane).runner.execute(:test)
@@ -85,9 +85,9 @@ describe Fastlane::Actions::SonarTestReportAction do
         sonar_report_directory: '#{output_directory}'
       )
       end"
-      allow(Fastlane::Helper::SonarTestReportHelper::Generator).to receive(:get_test_file_path)
+      allow(Fastlane::Helper::ForsisHelper::Generator).to receive(:get_test_file_path)
         .with('ClassOneTests').and_return('./ExampleTests/ClassOneTests.swift')
-      allow(Fastlane::Helper::SonarTestReportHelper::Generator).to receive(:get_test_file_path)
+      allow(Fastlane::Helper::ForsisHelper::Generator).to receive(:get_test_file_path)
         .with('ClassTwoTests').and_return('./ExampleTests/ClassTwoTests.swift')
       Fastlane::FastFile.new.parse(lane).runner.execute(:test)
       expected_sonarqube_report = File.absolute_path('spec/fixtures/sonarqube_generic_test_report.xml')

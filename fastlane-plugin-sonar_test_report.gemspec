@@ -4,7 +4,7 @@ require 'fastlane/plugin/forsis/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'fastlane-plugin-forsis'
-  spec.version       = Fastlane::SonarTestReport::VERSION
+  spec.version       = Fastlane::Forsis::VERSION
   spec.author        = 'Azadeh Bagheri'
   spec.email         = 'Azadeh.Bagheri@loblaw.ca'
 
