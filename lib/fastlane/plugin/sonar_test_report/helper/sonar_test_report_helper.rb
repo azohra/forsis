@@ -47,7 +47,7 @@ module Fastlane
       end
 
       def self.show_message
-        UI.message("Hello from the sonar_test_report plugin helper!")
+        UI.message("Hello from the forsis plugin helper!")
       end
     end
   end

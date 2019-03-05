@@ -1,15 +1,15 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'fastlane/plugin/sonar_test_report/version'
+require 'fastlane/plugin/forsis/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'fastlane-plugin-sonar_test_report'
+  spec.name          = 'fastlane-plugin-forsis'
   spec.version       = Fastlane::SonarTestReport::VERSION
   spec.author        = 'Azadeh Bagheri'
   spec.email         = 'Azadeh.Bagheri@loblaw.ca'
 
   spec.summary       = 'This plugin converts junit test reports to gthe sonarqube generic test execution report'
-  spec.homepage      = "https://gitlab.lblw.ca/azadeh/fastlane-plugin-sonar_test_report"
+  spec.homepage      = "https://gitlab.lblw.ca/azadeh/fastlane-plugin-forsis"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)

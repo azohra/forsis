@@ -1,4 +1,4 @@
-require 'fastlane/plugin/sonar_test_report/version'
+require 'fastlane/plugin/forsis/version'
 
 module Fastlane
   module SonarTestReport
