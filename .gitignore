@@ -12,6 +12,7 @@ coverage
 test-results
 fastlane/Test-report.xml
 fastlane/test_output
+.DS_Store
 
 ## Generated files when running tests
 spec/.DS_Store
