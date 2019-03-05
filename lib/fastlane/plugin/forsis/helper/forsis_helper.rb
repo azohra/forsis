@@ -2,7 +2,7 @@ require 'nokogiri'
 
 module Fastlane
   module Helper
-    module SonarTestReportHelper
+    module ForsisHelper
       class Generator
         def self.generate(junit_report_path, sonarqube_report_path)
           junit_file = Nokogiri::XML(File.open(junit_report_path))
@@ -47,7 +47,7 @@ module Fastlane
       end
 
       def self.show_message
-        UI.message("Hello from the sonar_test_report plugin helper!")
+        UI.message("Hello from the forsis plugin helper!")
       end
     end
   end

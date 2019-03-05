@@ -1,7 +1,7 @@
-require 'fastlane/plugin/sonar_test_report/version'
+require 'fastlane/plugin/forsis/version'
 
 module Fastlane
-  module SonarTestReport
+  module Forsis
     # Return all .rb files inside the "actions" and "helper" directory
     def self.all_classes
       Dir[File.expand_path('**/{actions,helper}/*.rb', File.dirname(__FILE__))]
@@ -11,6 +11,6 @@ end
 
 # By default we want to import all available actions and helpers
 # A plugin can contain any number of actions and plugins
-Fastlane::SonarTestReport.all_classes.each do |current|
+Fastlane::Forsis.all_classes.each do |current|
   require current
 end

@@ -1,5 +1,5 @@
 lane :test do
-  sonar_test_report(
+  forsis(
     junit_report_file: './spec/fixtures/original_test_report.junit',
     sonar_report_directory: './fastlane/test_output'
   )

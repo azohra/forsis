@@ -1,15 +1,15 @@
 require 'fastlane/action'
-require_relative '../helper/sonar_test_report_helper'
+require_relative '../helper/forsis_helper'
 
 module Fastlane
   module Actions
-    class SonarTestReportAction < Action
+    class ForsisAction < Action
 
       def self.run(params)
         junit_report_path = params[:junit_report_file]
         sonarqube_report_path = params[:sonar_report_directory]
         UI.message("Generating the Sonarqube generic test execution report!")
-        Fastlane::Helper::SonarTestReportHelper::Generator.generate(junit_report_path, sonarqube_report_path)
+        Fastlane::Helper::ForsisHelper::Generator.generate(junit_report_path, sonarqube_report_path)
       end
 
       def self.description
@@ -28,14 +28,14 @@ module Fastlane
         [
           FastlaneCore::ConfigItem.new(
             key: :junit_report_file,
-            env_name: "SONAR_TEST_REPORT_JUNIT_REPORT",
+            env_name: "forsis_JUNIT_REPORT",
             description: "The path of the junit test report file used to generate the generic test execution file for sonarqube ",
             optional: false,
             type: String,
             display_in_shell: false,
             verify_block: proc do |path|
               if path == ""
-                UI.user_error!("'sonar_test_report' action missing the key 'junit_report_path' or its value.")
+                UI.user_error!("'forsis' action missing the key 'junit_report_path' or its value.")
               else
                 UI.user_error!("ERROR: junit report not found at path: #{path}") unless File.exist?(path)
               end
@@ -43,7 +43,7 @@ module Fastlane
           ),
           FastlaneCore::ConfigItem.new(
             key: :sonar_report_directory,
-            env_name: "SONAR_TEST_REPORT_SONAR_GENERATED_REPORT",
+            env_name: "forsis_SONAR_GENERATED_REPORT",
             description: "The path of the sonarqube test execution report generated from the junit test report",
             optional: true,
             default_value: './fastlane',
