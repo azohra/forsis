@@ -75,10 +75,6 @@ To automatically fix many of the styling issues, use
 rubocop -a
 ```
 
-## Issues and Feedback
-
-For any other issues and feedback about this plugin, please submit it to this repository.
-
 ## Troubleshooting
 
 If you have trouble using plugins, check out the [Plugins Troubleshooting](https://docs.fastlane.tools/plugins/plugins-troubleshooting/) guide.
@@ -90,3 +86,20 @@ For more information about how the `fastlane` plugin system works, check out the
 ## About _fastlane_
 
 _fastlane_ is the easiest way to automate beta deployments and releases for your iOS and Android apps. To learn more, check out [fastlane.tools](https://fastlane.tools).
+This software is available as open source under the terms of the MIT License.
+
+## Contribution
+
+Bug reports and suggestions for improvements are always welcome. PRs are even better!! 
+
+If you run into any issues, before submitting a new GitHub issue, please make sure to
+
+* Check out the entire README on this repo 
+* Search for [existing GitHub issues](https://github.com/azohra/forsis/issues)
+
+If the above doesn't help, please submit an issue on [GitHub](https://github.com/azohra/forsis/issues). When reporting a bug, please make sure to include a spec that highlights the bug.
+  
+## License
+
+This software is available as open source under the terms of the MIT License.
+

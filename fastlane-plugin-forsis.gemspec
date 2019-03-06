@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'Azadeh.Bagheri@loblaw.ca'
 
   spec.summary       = 'This plugin converts junit test reports to gthe sonarqube generic test execution report'
-  spec.homepage      = "https://gitlab.lblw.ca/azadeh/fastlane-plugin-forsis"
+  spec.homepage      = "https://github.com/azohra/forsis"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
