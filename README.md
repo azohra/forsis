@@ -88,7 +88,7 @@ For more information about how the `fastlane` plugin system works, check out the
 _fastlane_ is the easiest way to automate beta deployments and releases for your iOS and Android apps. To learn more, check out [fastlane.tools](https://fastlane.tools).
 This software is available as open source under the terms of the MIT License.
 
-## Contribution
+## Contributing
 
 Bug reports and suggestions for improvements are always welcome. PRs are even better!! 
 
