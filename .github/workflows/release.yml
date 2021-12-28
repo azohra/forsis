@@ -1,10 +1,10 @@
 name: Release Ruby Gem
 
 # on: workflow_dispatch
-on: 
-  push: 
-    branches:
-      - feature/adding-CI/CD-pipeline
+# on: 
+#   push: 
+#     branches:
+#       - feature/adding-CI/CD-pipeline
 
 jobs:
   build:
