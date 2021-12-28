@@ -1,0 +1,25 @@
+name: Release workflow
+
+on: workflow_dispatch
+
+jobs:
+  release-to-RubyGems:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Check version
+        run: bundle exec rake validate:version
+      - name: Publish to RubyGems
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:github: Bearer ${GITHUB_TOKEN}\n:rubygems_api_key: ${RUBYGEMS_API_KEY}\n" > $HOME/.gem/credentials
+        env:
+          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
