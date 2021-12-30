@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/azohra/forsis"
   spec.license       = "MIT"
 
+  spec.required_ruby_version = '>= 2.5'
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']

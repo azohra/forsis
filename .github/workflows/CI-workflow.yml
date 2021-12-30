@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - master
+      - feature/adding-CI/CD-pipeline
 
 jobs:
   lint-and-test:
