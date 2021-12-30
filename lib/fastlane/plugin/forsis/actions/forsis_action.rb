@@ -4,7 +4,6 @@ require_relative '../helper/forsis_helper'
 module Fastlane
   module Actions
     class ForsisAction < Action
-
       def self.run(params)
         junit_report_path = params[:junit_report_file]
         sonarqube_report_path = params[:sonar_report_directory]
@@ -55,7 +54,6 @@ module Fastlane
         [:ios, :mac].include?(platform)
         true
       end
-
     end
   end
 end

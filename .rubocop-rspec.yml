@@ -1,0 +1,17 @@
+RSpec/FilePath:
+  Enabled: false
+
+RSpec/BeforeAfterAll:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 17
+
+RSpec/MultipleExpectations:
+  Max: 2
+
+RSpec/HookArgument:
+  EnforcedStyle: each
+
+RSpec/DescribedClass:
+  EnforcedStyle: explicit

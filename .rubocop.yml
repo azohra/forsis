@@ -1,3 +1,22 @@
+inherit_from:
+  - '.rubocop-rspec.yml'
+
+require:
+  - rubocop-rake
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.5
+  NewCops: enable
+  # Exclude:
+ 
+Naming/FileName:
+  Exclude:
+  # - "**/Gemfile"
+  - "**/Rakefile"
+  - "**/Fastfile"
+  - "**/*.gemspec"
+
 Style/MultipleComparison:
   Enabled: false
 
@@ -13,11 +32,14 @@ Style/FrozenStringLiteralComment:
 Style/SafeNavigation:
   Enabled: false
 
-Performance/RegexpMatch:
+Style/MutableConstant:
   Enabled: false
 
-Performance/StringReplacement:
-  Enabled: false
+# Performance/RegexpMatch:
+#   Enabled: false
+
+# Performance/StringReplacement:
+#   Enabled: false
 
 Style/NumericPredicate:
   Enabled: false
@@ -31,13 +53,13 @@ Metrics/ModuleLength:
 Naming/VariableNumber:
   Enabled: false
 
-Style/MethodMissingSuper:
-  Enabled: false
+# Style/MethodMissingSuper:
+#   Enabled: false
 
 Style/MissingRespondToMissing:
   Enabled: false
 
-MultilineBlockChain:
+Style/MultilineBlockChain:
   Enabled: false
 
 Style/NumericLiteralPrefix:
@@ -46,40 +68,22 @@ Style/NumericLiteralPrefix:
 Style/TernaryParentheses:
   Enabled: false
 
-Style/EmptyMethod:
-  Enabled: false
+# Style/EmptyMethod:
+#   Enabled: true
 
-Style/BracesAroundHashParameters:
-  Enabled: false
+# Style/BracesAroundHashParameters:
+#   Enabled: false
 
 Lint/UselessAssignment:
   Exclude:
   - "**/spec/**/*"
 
-Layout/IndentHash:
-  Enabled: false
-
-Layout/AlignHash:
-  Enabled: false
-
-Layout/DotPosition:
-  Enabled: false
-
-Style/DoubleNegation:
-  Enabled: false
-
 Style/SymbolArray:
-  Enabled: false
-
-Layout/IndentHeredoc:
   Enabled: false
 
 Style/MixinGrouping:
   Exclude:
   - "**/spec/**/*"
-
-Lint/HandleExceptions:
-  Enabled: false
 
 Lint/UnusedBlockArgument:
   Enabled: false
@@ -124,14 +128,11 @@ Style/AndOr:
 Metrics/ClassLength:
   Max: 320
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 370
 
 Metrics/ParameterLists:
   Max: 17
-
-Metrics/PerceivedComplexity:
-  Max: 18
 
 Style/GuardClause:
   Enabled: false
@@ -155,36 +156,7 @@ Lint/ParenthesesAsGroupedExpression:
 Naming/PredicateName:
   Enabled: false
 
-Style/PerlBackrefs:
-  Enabled: false
-
-Layout/SpaceAroundOperators:
-  Exclude:
-  - "**/spec/actions_specs/xcodebuild_spec.rb"
-
-AllCops:
-  TargetRubyVersion: 2.2
-  Exclude:
-  - "**/lib/assets/custom_action_template.rb"
-  - "./vendor/**/*"
-  - "**/lib/assets/DefaultFastfileTemplate"
-  - "**/spec/fixtures/broken_files/broken_file.rb"
-Naming/FileName:
-  Exclude:
-  - "**/Dangerfile"
-  - "**/Brewfile"
-  - "**/Gemfile"
-  - "**/Podfile"
-  - "**/Rakefile"
-  - "**/Fastfile"
-  - "**/Deliverfile"
-  - "**/Snapfile"
-  - "**/*.gemspec"
-
 Style/Documentation:
-  Enabled: false
-
-Style/MutableConstant:
   Enabled: false
 
 Style/ZeroLengthPredicate:
@@ -194,13 +166,15 @@ Style/IfInsideElse:
   Enabled: false
 
 Style/CollectionMethods:
-  Enabled: fals
+  Enabled: false
 
+# check which of these methods we are using
 Style/MethodCallWithArgsParentheses:
   Enabled: true
   IgnoredMethods:
   - require
   - require_relative
+  - load
   - fastlane_require
   - gem
   - program
@@ -220,5 +194,5 @@ Style/MethodCallWithArgsParentheses:
   - before
   - after
 
-EmptyLinesAroundClassBody:
+Gemspec/RequireMFA:
   Enabled: false

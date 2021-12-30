@@ -1,5 +1,5 @@
 require 'bundler/gem_tasks'
-load './lib/tasks/validate.rake'
+load('./lib/tasks/validate.rake')
 
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new
