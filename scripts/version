@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/fastlane/plugin/forsis/version'
+current_version = "v#{Fastlane::Forsis::VERSION}"
+puts current_version

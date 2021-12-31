@@ -1,7 +1,7 @@
 name: CI Workflow
 
 on:
-  # pull_request:
+  pull_request:
   push:
     branches:
       - master
@@ -9,14 +9,15 @@ on:
 
 jobs:
   lint-and-test:
-    name: lint-and-test-Ruby ${{ matrix.ruby }}
+    name: lint and test with Ruby ${{ matrix.ruby }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         ruby: [2.5, 2.7, 3.0]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Set up Ruby 
         uses: ruby/setup-ruby@v1
         with:
@@ -28,13 +29,14 @@ jobs:
         run: bundle exec rake spec
 
   build:
-    name: build-Ruby ${{ matrix.ruby}}
+    name: build with Ruby ${{ matrix.ruby}}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         ruby: [2.5, 2.7, 3.0]
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Set up Ruby 
         uses: ruby/setup-ruby@v1
         with:

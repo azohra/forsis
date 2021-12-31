@@ -6,20 +6,25 @@ jobs:
   release-to-RubyGems:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Set up Ruby 
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-      - name: Check version
+      - name: Check the Gem's version
         run: bundle exec rake validate:version
+      - name: Create tag
+        id: gem-version
+        run: echo ::set-output name=VERSION::$(./scripts/version)
+      - name: Push Tag and release to Github
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: "v${{ steps.gem-version.outputs.VERSION }}"
+          name: Forsis v${{ steps.gem-version.outputs.VERSION }}
+          bodyFile: "./docs/release_notes/v0.2.0.md"
       - name: Publish to RubyGems
-        run: |
-          mkdir -p $HOME/.gem
-          touch $HOME/.gem/credentials
-          chmod 0600 $HOME/.gem/credentials
-          printf -- "---\n:github: Bearer ${GITHUB_TOKEN}\n:rubygems_api_key: ${RUBYGEMS_API_KEY}\n" > $HOME/.gem/credentials
-        env:
-          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./scripts/release.sh ${{ secrets.RUBYGEMS_API_KEY }}
+          
