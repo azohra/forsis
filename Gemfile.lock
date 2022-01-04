@@ -161,11 +161,13 @@ GEM
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.6.1)
     multi_json (1.15.0)
     multipart-post (2.0.0)
     nanaimo (0.3.0)
     naturally (2.2.1)
-    nokogiri (1.12.5-x86_64-darwin)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     optparse (0.1.1)
     os (1.1.4)
@@ -263,7 +265,7 @@ GEM
       xcpretty (~> 0.2, >= 0.0.7)
 
 PLATFORMS
-  x86_64-darwin-19
+  ruby
 
 DEPENDENCIES
   bundler (>= 1.15.0, < 3.0.0)
