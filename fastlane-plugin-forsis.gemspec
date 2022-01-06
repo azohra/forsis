@@ -13,6 +13,12 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.required_ruby_version = '>= 2.5'
+  spec.metadata      = {
+    "bug_tracker_uri" => "https://github.com/azohra/forsis/issues",
+    "changelog_uri" => "https://github.com/azohra/forsis/releases",
+    "homepage_uri" => spec.homepage,
+    "source_code_uri" => "https://github.com/azohra/forsis"
+  }
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
