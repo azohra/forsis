@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fastlane-plugin-forsis (0.1.2)
+    fastlane-plugin-forsis (0.2.0)
       nokogiri (~> 1.12.5)
 
 GEM
