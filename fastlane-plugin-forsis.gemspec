@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/azohra/forsis"
   spec.license       = "MIT"
 
+  spec.required_ruby_version = '>= 2.5'
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
@@ -19,14 +20,16 @@ Gem::Specification.new do |spec|
   # Don't add a dependency to fastlane or fastlane_re
   # since this would cause a circular dependency
 
-  spec.add_dependency('nokogiri', '~> 1.11.0')
+  spec.add_dependency('nokogiri', '~> 1.12.5')
 
-  spec.add_development_dependency('bundler')
-  spec.add_development_dependency('fastlane', '>= 2.111.0')
+  spec.add_development_dependency('bundler', '>= 1.15.0', '< 3.0.0')
+  spec.add_development_dependency('fastlane', '~> 2.185')
   spec.add_development_dependency('pry')
   spec.add_development_dependency('rake')
-  spec.add_development_dependency('rspec')
+  spec.add_development_dependency('rspec', '~> 3.10')
   spec.add_development_dependency('rspec_junit_formatter')
-  spec.add_development_dependency('rubocop', '~> 0.65.0')
-  spec.add_development_dependency('simplecov')
+  spec.add_development_dependency('rubocop', '~> 1.24')
+  spec.add_development_dependency('rubocop-rake')
+  spec.add_development_dependency('rubocop-rspec')
+  spec.add_development_dependency('simplecov', '~> 0.21.2')
 end

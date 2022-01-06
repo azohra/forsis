@@ -23,7 +23,7 @@ describe Fastlane::Helper::ForsisHelper::Generator do
   it 'overwrites an existing sonarqube report' do
     junit_file_path = './spec/fixtures/original_test_report.junit'
     sonarqube_report_path = './spec/fixtures'
-    existing_sonarqube_file = File.absolute_path(sonarqube_report_path + '/Test_sonarqube_report.xml')
+    existing_sonarqube_file = File.absolute_path("#{sonarqube_report_path}/Test_sonarqube_report.xml")
     expect(File.exist?(existing_sonarqube_file)).to be true
 
     allow(Fastlane::Helper::ForsisHelper::Generator).to receive(:get_test_file_path)

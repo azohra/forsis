@@ -91,7 +91,7 @@ describe Fastlane::Actions::ForsisAction do
         .with('ClassTwoTests').and_return('./ExampleTests/ClassTwoTests.swift')
       Fastlane::FastFile.new.parse(lane).runner.execute(:test)
       expected_sonarqube_report = File.absolute_path('spec/fixtures/sonarqube_generic_test_report.xml')
-      generated_sonarqube_report = output_directory + '/Test_sonarqube_report.xml'
+      generated_sonarqube_report = "#{output_directory}/Test_sonarqube_report.xml"
 
       expect(File.exist?(generated_sonarqube_report)).to be true
       expect(FileUtils.compare_file(generated_sonarqube_report, expected_sonarqube_report)).to be true
