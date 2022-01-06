@@ -15,7 +15,7 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Check the Gem's version
         run: bundle exec rake validate:version
-      - name: Create tag
+      - name: Prepare tag
         id: gem-version
         run: echo ::set-output name=VERSION::$(./scripts/version)
       - name: Push Tag and release to Github

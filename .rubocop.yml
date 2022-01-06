@@ -8,11 +8,10 @@ require:
 AllCops:
   TargetRubyVersion: 2.5
   NewCops: enable
-  # Exclude:
  
 Naming/FileName:
   Exclude:
-  # - "**/Gemfile"
+  - "**/Gemfile"
   - "**/Rakefile"
   - "**/Fastfile"
   - "**/*.gemspec"
@@ -35,12 +34,6 @@ Style/SafeNavigation:
 Style/MutableConstant:
   Enabled: false
 
-# Performance/RegexpMatch:
-#   Enabled: false
-
-# Performance/StringReplacement:
-#   Enabled: false
-
 Style/NumericPredicate:
   Enabled: false
 
@@ -53,9 +46,6 @@ Metrics/ModuleLength:
 Naming/VariableNumber:
   Enabled: false
 
-# Style/MethodMissingSuper:
-#   Enabled: false
-
 Style/MissingRespondToMissing:
   Enabled: false
 
@@ -67,12 +57,6 @@ Style/NumericLiteralPrefix:
 
 Style/TernaryParentheses:
   Enabled: false
-
-# Style/EmptyMethod:
-#   Enabled: true
-
-# Style/BracesAroundHashParameters:
-#   Enabled: false
 
 Lint/UselessAssignment:
   Exclude:
@@ -168,7 +152,6 @@ Style/IfInsideElse:
 Style/CollectionMethods:
   Enabled: false
 
-# check which of these methods we are using
 Style/MethodCallWithArgsParentheses:
   Enabled: true
   IgnoredMethods:
