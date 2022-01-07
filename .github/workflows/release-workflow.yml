@@ -22,8 +22,8 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: "v${{ steps.gem-version.outputs.VERSION }}"
-          name: Forsis v${{ steps.gem-version.outputs.VERSION }}
+          tag: "${{ steps.gem-version.outputs.VERSION }}"
+          name: Forsis ${{ steps.gem-version.outputs.VERSION }}
           bodyFile: "./docs/release_notes/v0.2.0.md"
       - name: Publish to RubyGems
         run: ./scripts/release.sh ${{ secrets.RUBYGEMS_API_KEY }}
