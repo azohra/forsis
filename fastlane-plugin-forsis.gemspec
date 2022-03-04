@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   # Don't add a dependency to fastlane or fastlane_re
   # since this would cause a circular dependency
 
-  spec.add_dependency('nokogiri', '~> 1.12.5')
+  spec.add_dependency('nokogiri', '>= 1.13.2')
 
   spec.add_development_dependency('bundler', '>= 1.15.0', '< 3.0.0')
   spec.add_development_dependency('fastlane', '~> 2.185')
