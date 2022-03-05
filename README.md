@@ -1,5 +1,7 @@
 # forsis plugin
 
+**Please Note:** Forsis has a new home. Please use its new [repository](https://github.com/Tumiya/forsis) to get the future updates and for opening issues and pull requests.
+
 [![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-forsis)
 [![Gem Version](https://badge.fury.io/rb/fastlane-plugin-forsis.svg)](https://rubygems.org/gems/fastlane-plugin-forsis)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
